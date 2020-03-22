@@ -27,6 +27,13 @@
 		A73748F12427EE690088BB0E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73748F02427EE690088BB0E /* Product.swift */; };
 		A73748F42427FDD90088BB0E /* ReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73748F22427FDD80088BB0E /* ReceiptViewController.swift */; };
 		A73748F52427FDD90088BB0E /* ReceiptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A73748F32427FDD80088BB0E /* ReceiptViewController.xib */; };
+		A73748F82427FFB10088BB0E /* ReceiptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73748F72427FFB10088BB0E /* ReceiptViewModel.swift */; };
+		A73748FA2428014C0088BB0E /* ReceiptDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73748F92428014C0088BB0E /* ReceiptDataSource.swift */; };
+		A73748FE242801D60088BB0E /* ProductReceiptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73748FC242801D60088BB0E /* ProductReceiptCell.swift */; };
+		A73748FF242801D60088BB0E /* ProductReceiptCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A73748FD242801D60088BB0E /* ProductReceiptCell.xib */; };
+		A7374901242805550088BB0E /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7374900242805550088BB0E /* UITableView+Extension.swift */; };
+		A737490424280FBD0088BB0E /* FooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737490224280FBD0088BB0E /* FooterCell.swift */; };
+		A737490524280FBD0088BB0E /* FooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A737490324280FBD0088BB0E /* FooterCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +80,13 @@
 		A73748F02427EE690088BB0E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		A73748F22427FDD80088BB0E /* ReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewController.swift; sourceTree = "<group>"; };
 		A73748F32427FDD80088BB0E /* ReceiptViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceiptViewController.xib; sourceTree = "<group>"; };
+		A73748F72427FFB10088BB0E /* ReceiptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewModel.swift; sourceTree = "<group>"; };
+		A73748F92428014C0088BB0E /* ReceiptDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptDataSource.swift; sourceTree = "<group>"; };
+		A73748FC242801D60088BB0E /* ProductReceiptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReceiptCell.swift; sourceTree = "<group>"; };
+		A73748FD242801D60088BB0E /* ProductReceiptCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductReceiptCell.xib; sourceTree = "<group>"; };
+		A7374900242805550088BB0E /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		A737490224280FBD0088BB0E /* FooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCell.swift; sourceTree = "<group>"; };
+		A737490324280FBD0088BB0E /* FooterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterCell.xib; sourceTree = "<group>"; };
 		C0234282F5AC2E5278CA6871 /* Pods-TestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.release.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.release.xcconfig"; sourceTree = "<group>"; };
 		F5C8B3E5C6282D38F6036F6A /* Pods_TestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -190,9 +204,11 @@
 		A73748D62427DEC60088BB0E /* Receipt */ = {
 			isa = PBXGroup;
 			children = (
+				A73748FB242801B60088BB0E /* Cells */,
 				A73748F62427FE170088BB0E /* ViewModel */,
 				A73748F22427FDD80088BB0E /* ReceiptViewController.swift */,
 				A73748F32427FDD80088BB0E /* ReceiptViewController.xib */,
+				A73748F92428014C0088BB0E /* ReceiptDataSource.swift */,
 			);
 			path = Receipt;
 			sourceTree = "<group>";
@@ -200,6 +216,7 @@
 		A73748DD2427E3650088BB0E /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				A7374900242805550088BB0E /* UITableView+Extension.swift */,
 				A73748EB2427E6CE0088BB0E /* UICollectionView+Extension.swift */,
 				A73748DE2427E3650088BB0E /* RX+Ignorenil.swift */,
 				A73748DF2427E3650088BB0E /* Codable+Extensions.swift */,
@@ -229,8 +246,20 @@
 		A73748F62427FE170088BB0E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A73748F72427FFB10088BB0E /* ReceiptViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A73748FB242801B60088BB0E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A73748FC242801D60088BB0E /* ProductReceiptCell.swift */,
+				A73748FD242801D60088BB0E /* ProductReceiptCell.xib */,
+				A737490224280FBD0088BB0E /* FooterCell.swift */,
+				A737490324280FBD0088BB0E /* FooterCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,7 +371,9 @@
 				A73748B22427DE7F0088BB0E /* LaunchScreen.storyboard in Resources */,
 				A73748EA2427E56A0088BB0E /* ProductCell.xib in Resources */,
 				A73748F52427FDD90088BB0E /* ReceiptViewController.xib in Resources */,
+				A737490524280FBD0088BB0E /* FooterCell.xib in Resources */,
 				A73748AF2427DE7F0088BB0E /* Assets.xcassets in Resources */,
+				A73748FF242801D60088BB0E /* ProductReceiptCell.xib in Resources */,
 				A73748DA2427DEE60088BB0E /* ProductsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,13 +446,18 @@
 				A73748E32427E37B0088BB0E /* Color+App.swift in Sources */,
 				A73748E02427E3650088BB0E /* RX+Ignorenil.swift in Sources */,
 				A73748A62427DE790088BB0E /* AppDelegate.swift in Sources */,
+				A73748FE242801D60088BB0E /* ProductReceiptCell.swift in Sources */,
 				A73748F12427EE690088BB0E /* Product.swift in Sources */,
 				A73748E12427E3650088BB0E /* Codable+Extensions.swift in Sources */,
 				A73748E92427E56A0088BB0E /* ProductCell.swift in Sources */,
+				A737490424280FBD0088BB0E /* FooterCell.swift in Sources */,
 				A73748A82427DE790088BB0E /* SceneDelegate.swift in Sources */,
+				A73748FA2428014C0088BB0E /* ReceiptDataSource.swift in Sources */,
 				A73748F42427FDD90088BB0E /* ReceiptViewController.swift in Sources */,
 				A73748EF2427EE2A0088BB0E /* ProductsViewModel.swift in Sources */,
 				A73748E52427E4A90088BB0E /* ProductsDataSource.swift in Sources */,
+				A73748F82427FFB10088BB0E /* ReceiptViewModel.swift in Sources */,
+				A7374901242805550088BB0E /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

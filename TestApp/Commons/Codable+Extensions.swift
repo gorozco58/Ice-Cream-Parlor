@@ -23,3 +23,12 @@ extension Encodable {
         return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
     }
 }
+
+extension String {
+    func subString(from: Int, to: Int) -> String {
+        guard from != to else { return "" }
+        let startIndex = self.index(self.startIndex, offsetBy: from)
+        let endIndex = self.index(self.startIndex, offsetBy: to)
+        return String(self[startIndex..<endIndex])
+    }
+}

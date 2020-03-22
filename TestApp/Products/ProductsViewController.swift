@@ -27,7 +27,10 @@ class ProductsViewController: UIViewController {
     }
     
     @IBAction func orderButtonPressed() {
-        
+        let products = viewModel.getCartProducts()
+        let viewModel = ReceiptViewModel(orderProducts: products)
+        let viewController = ReceiptViewController(viewModel: viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
@@ -49,8 +52,11 @@ private extension ProductsViewController {
     func bindViewModel() {
         viewModel
             .getProducts()
-            .subscribe(onCompleted: { [productsCollectionView] in
-                productsCollectionView?.reloadData()
+            .subscribe(
+                onCompleted: { [productsCollectionView] in
+                    productsCollectionView?.reloadData()
+                }, onError: { error in
+                    print(error)
             })
             .disposed(by: disposeBag)
         

@@ -31,7 +31,7 @@ class ProductCell: UICollectionViewCell {
         imageBackgroundView.backgroundColor = product.backgroundColor
         productImageView.image = product.image
         titleLabel.text = product.name
-        priceLabel.text = product.price
+        priceLabel.text = product.priceFormatted
         quantityLabel.text = "\(product.numberSelected)"
         
         if product.numberSelected == 0 {

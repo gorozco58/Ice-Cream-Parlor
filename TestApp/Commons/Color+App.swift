@@ -10,6 +10,10 @@ extension UIColor {
         return UIColor(red: 231.0/255.0, green: 231.0/255.0, blue: 231.0/255.0, alpha: 1)
     }
     
+    static var darkGray: UIColor {
+        return UIColor(red: 51.0/255.0, green: 51.0/255.0, blue: 51.0/255.0, alpha: 1)
+    }
+    
     static func hex(_ hex: String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 

@@ -10,12 +10,15 @@ import UIKit
 
 class ReceiptViewController: UIViewController {
 
-    private let dataSource = ProductsDataSource()
-    private let viewModel: ProductsViewModelProtocol
+    @IBOutlet private weak var receiptTableView: UITableView!
+    @IBOutlet private weak var startNewOrderButton: UIButton!
     
-    init(viewModel: ProductsViewModelProtocol) {
+    private let viewModel: ReceiptViewModelProtocol
+    private let dataSource = ReceiptDataSource()
+    
+    init(viewModel: ReceiptViewModelProtocol) {
         self.viewModel = viewModel
-        super.init(nibName: String(describing: ProductsViewController.self), bundle: nil)
+        super.init(nibName: String(describing: ReceiptViewController.self), bundle: nil)
         title = " "
     }
     
@@ -25,11 +28,21 @@ class ReceiptViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        receiptTableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        receiptTableView.estimatedRowHeight = 60
+        receiptTableView.rowHeight = UITableView.automaticDimension
+        receiptTableView.registerCell(ProductReceiptCell.self)
+        receiptTableView.registerCell(FooterCell.self)
+        receiptTableView.dataSource = dataSource
+        receiptTableView.delegate = dataSource
+        dataSource.delegate = viewModel
+        startNewOrderButton.layer.borderWidth = 4
+        startNewOrderButton.layer.borderColor = UIColor.white.cgColor
     }
-
-
     
-
+    @IBAction func startNewOrderPressed() {
+        let viewModel = ProductsViewModel()
+        let viewController = ProductsViewController(viewModel: viewModel)
+        navigationController?.setViewControllers([viewController], animated: true)
+    }
 }
